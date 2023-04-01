@@ -29,8 +29,7 @@ public class HelloControllerTest {
     String hello = "hello";
 
     mvc.perform(get("/hello")) // mvc에서 http get method로 ~/hello 요청
-        .andExpect(
-            status().isOk()) // andExpect() : 위 요청에 대한 예상, status.isOk() : http header의 status 검즘
+        .andExpect(status().isOk()) // andExpect() : 위 요청에 대한 예상, status.isOk() : http header의 status 검즘
         .andExpect(content().string(hello)); //  content() : 응답 바디를 검증
   }
 

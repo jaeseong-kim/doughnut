@@ -24,6 +24,9 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-mustache')
     testImplementation 'junit:junit:4.13.1'
 
+    // mustache
+    implementation('org.springframework.boot:spring-boot-starter-mustache')
+
     // lombok
     implementation('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
