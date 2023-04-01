@@ -33,9 +33,19 @@ public class PostsService {
     posts.update(requestDto.getTitle(), requestDto.getContent());
 
     //save 부분이 없음 왜? @Transactional 안에서 실행되기 때문에 posts는 영속성이 유지됨.
-    //값이 바뀌면 @Transactional이 끝나는 시점에 테이블 변경 반영됨.
+    //트랜잭션이 시작 되고 값이 바뀌면 @Transactional이 끝나는 시점에 테이블 변경 반영됨.
+    //더티 체킹
 
     return id;
+  }
+
+  @Transactional
+  public void delete(Long id) {
+    Posts posts = postsRepository.findById(id)
+        .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
+
+    postsRepository.delete(posts);
+
   }
 
   public PostsResponseDto findById(Long id) {
@@ -48,7 +58,7 @@ public class PostsService {
   @Transactional(readOnly = true)
   public List<PostListResponseDto> findAllDesc() {
     return postsRepository.findAllDesc().stream()
-                                        .map(PostListResponseDto::new)
-                                        .collect(Collectors.toList());
+        .map(PostListResponseDto::new)
+        .collect(Collectors.toList());
   }
 }

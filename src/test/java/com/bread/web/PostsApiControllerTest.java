@@ -4,7 +4,6 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import com.bread.domain.posts.Posts;
 import com.bread.domain.posts.PostsRepository;
-import com.bread.web.dto.PostsResponseDto;
 import com.bread.web.dto.PostsSaveRequestDto;
 import com.bread.web.dto.PostsUpdateRequestDto;
 import java.util.List;
@@ -48,15 +47,15 @@ public class PostsApiControllerTest {
     String title = "title";
     String content = "content";
     PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
-                                                          .title(title)
-                                                          .content(content)
-                                                          .author("jaes@naver.com")
-                                                          .build();
+        .title(title)
+        .content(content)
+        .author("jaes@naver.com")
+        .build();
 
-    String url = "http://localhost:"+port+"/api/v1/posts";
+    String url = "http://localhost:" + port + "/api/v1/posts";
 
     //when
-    ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url,requestDto, Long.class);
+    ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestDto, Long.class);
 
     //then
     assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -67,24 +66,24 @@ public class PostsApiControllerTest {
   }
 
   @Test
-  public void updatePosts() throws Exception{
+  public void updatePosts() throws Exception {
     //given
     Posts savedPosts = postsRepository.save(Posts.builder()
-                                                  .title("title")
-                                                  .content("content")
-                                                  .author("author")
-                                                  .build());
+        .title("title")
+        .content("content")
+        .author("author")
+        .build());
 
     Long updateId = savedPosts.getId();
     String expectedTitle = "title2";
     String expectedContent = "content2";
 
     PostsUpdateRequestDto requestDto = PostsUpdateRequestDto.builder()
-                                                              .title(expectedTitle)
-                                                              .content(expectedContent)
-                                                              .build();
+        .title(expectedTitle)
+        .content(expectedContent)
+        .build();
 
-    String url = "http://localhost:"+port+"/api/v1/posts/"+updateId;
+    String url = "http://localhost:" + port + "/api/v1/posts/" + updateId;
 
     HttpEntity<PostsUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
 
@@ -100,5 +99,30 @@ public class PostsApiControllerTest {
     assertThat(all.get(0).getTitle()).isEqualTo(expectedTitle);
     assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
 
+  }
+
+  @Test
+  public void deletePosts() {
+    //given
+    postsRepository.save(Posts.builder()
+                                .title("제목1")
+                                .author("작성자1")
+                                .content("내용1")
+                                .build());
+
+    List<Posts> postsList = postsRepository.findAll();
+    Long id = postsList.get(0).getId();
+    String url = "http://localhost:" + port + "/api/v1/posts/" + id;
+
+    //when
+    ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE,
+        HttpEntity.EMPTY, Long.class);
+
+    //then
+    assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+    assertThat(responseEntity.getBody()).isEqualTo(id);
+
+    List<Posts> list = postsRepository.findAllDesc();
+    assertThat(list.size()).isEqualTo(0);
   }
 }
