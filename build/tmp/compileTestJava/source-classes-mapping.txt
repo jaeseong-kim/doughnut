@@ -1,3 +1,5 @@
+com/bread/web/dto/HelloResponseDtoTest.java
+ com.bread.web.dto.HelloResponseDtoTest
 com/bread/web/HelloControllerTest.java
  com.bread.web.HelloControllerTest
 com/bread/web/PostsApiControllerTest.java
@@ -6,5 +8,3 @@ com/bread/web/IndexControllerTest.java
  com.bread.web.IndexControllerTest
 com/bread/domain/posts/PostsRepositoryTest.java
  com.bread.domain.posts.PostsRepositoryTest
-com/bread/web/dto/HelloResponseDtoTest.java
- com.bread.web.dto.HelloResponseDtoTest
