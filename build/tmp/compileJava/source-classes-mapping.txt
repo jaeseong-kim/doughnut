@@ -18,36 +18,36 @@ com/bread/config/WebConfig.java
 com/bread/web/dto/PostsUpdateRequestDto.java
  com.bread.web.dto.PostsUpdateRequestDto
  com.bread.web.dto.PostsUpdateRequestDto$PostsUpdateRequestDtoBuilder
-com/bread/web/PostsApiController.java
- com.bread.web.PostsApiController
+com/bread/config/auth/SecurityConfig.java
+ com.bread.config.auth.SecurityConfig
 com/bread/domain/posts/PostsRepository.java
  com.bread.domain.posts.PostsRepository
 com/bread/domain/posts/Posts.java
  com.bread.domain.posts.Posts
  com.bread.domain.posts.Posts$PostsBuilder
+com/bread/config/auth/JpaConfig.java
+ com.bread.config.auth.JpaConfig
 com/bread/domain/user/Role.java
  com.bread.domain.user.Role
-com/bread/web/dto/PostsSaveRequestDto.java
- com.bread.web.dto.PostsSaveRequestDto
- com.bread.web.dto.PostsSaveRequestDto$PostsSaveRequestDtoBuilder
-com/bread/web/dto/PostListResponseDto.java
- com.bread.web.dto.PostListResponseDto
-com/bread/config/auth/SecurityConfig.java
- com.bread.config.auth.SecurityConfig
-com/bread/domain/BaseTimeEntity.java
- com.bread.domain.BaseTimeEntity
-com/bread/service/posts/PostsService.java
- com.bread.service.posts.PostsService
-com/bread/web/dto/PostsResponseDto.java
- com.bread.web.dto.PostsResponseDto
 com/bread/web/IndexController.java
  com.bread.web.IndexController
+com/bread/web/dto/PostListResponseDto.java
+ com.bread.web.dto.PostListResponseDto
+com/bread/Application.java
+ com.bread.Application
+com/bread/domain/BaseTimeEntity.java
+ com.bread.domain.BaseTimeEntity
 com/bread/config/auth/dto/OAuthAttributes.java
  com.bread.config.auth.dto.OAuthAttributes
  com.bread.config.auth.dto.OAuthAttributes$OAuthAttributesBuilder
+com/bread/web/dto/PostsResponseDto.java
+ com.bread.web.dto.PostsResponseDto
 com/bread/config/auth/CustomOAuth2UserService.java
  com.bread.config.auth.CustomOAuth2UserService
-com/bread/config/auth/JpaConfig.java
- com.bread.config.auth.JpaConfig
-com/bread/Application.java
- com.bread.Application
+com/bread/web/PostsApiController.java
+ com.bread.web.PostsApiController
+com/bread/web/dto/PostsSaveRequestDto.java
+ com.bread.web.dto.PostsSaveRequestDto
+ com.bread.web.dto.PostsSaveRequestDto$PostsSaveRequestDtoBuilder
+com/bread/service/posts/PostsService.java
+ com.bread.service.posts.PostsService
