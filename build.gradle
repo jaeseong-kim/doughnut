@@ -5,18 +5,13 @@ plugins {
     id 'java'
 }
 
-
 group 'com.bread'
 version '1.0-SNAPSHOT'
-sourceCompatibility = 1.11
+sourceCompatibility = '11'
 
 repositories {
     mavenCentral()
     jcenter()
-}
-
-test {
-    useJUnitPlatform()
 }
 
 dependencies {
