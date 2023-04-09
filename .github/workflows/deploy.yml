@@ -48,7 +48,7 @@ jobs:
         shell: bash
 
       - name: Make zip file
-        run: zip -r ./$PROJECT_NAME.zip
+        run: zip -r ./$PROJECT_NAME.zip .
         shell: bash
 
       - name: Check pwd
