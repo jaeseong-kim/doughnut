@@ -51,6 +51,14 @@ jobs:
         run: zip -r .$PROJECT_NAME.zip .
         shell: bash
 
+      - name: Check pwd
+        run: pwd
+        shell: bash
+
+      - name: Chekc ls
+        run: ls
+        shell: bash
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
