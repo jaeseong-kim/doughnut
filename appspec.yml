@@ -1,0 +1,9 @@
+#S3 서버에서 EC2로 프로젝트 파일이 오고 실행되는 파일
+
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/app/step2/zip/
+    overwrite: yes
+
